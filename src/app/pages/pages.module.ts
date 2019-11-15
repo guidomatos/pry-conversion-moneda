@@ -9,6 +9,8 @@ import { PagesComponent } from './pages.component';
 import { HistoricoComponent } from './historico/historico.component';
 import { CalculoComponent } from './calculo/calculo.component';
 import { HomeComponent } from './home/home.component';
+import { OnlyNumbers } from '../directives/onlynumber.directive';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { HomeComponent } from './home/home.component';
         PagesComponent,
         HistoricoComponent,
         CalculoComponent,
-        HomeComponent
+        HomeComponent,
+        OnlyNumbers
     ],
     exports: [
         HistoricoComponent,

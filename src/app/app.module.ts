@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -26,7 +28,9 @@ import { SharedModule } from './shared/shared.module';
     PagesModule,
     SharedModule,
     FormsModule,
-    ServiceModule
+    ServiceModule,
+    //HttpModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

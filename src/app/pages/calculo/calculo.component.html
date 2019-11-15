@@ -4,6 +4,8 @@
 
 <!-- Links -->
 <div class="card-container">
-    <input type="text" class="form-control" placeholder="EU">
-    <input type="text" class="form-control" placeholder="USD">
+    <!-- <input type="number" class="form-control" placeholder="EU" [(ngModel)]="montoConvertir" (keypress)="numberOnly($event)"> -->
+    <input type="text" placeholder="EU" [(ngModel)]="montoConvertir" onlyNumbers allowDecimals="true" allowSign="false">
+    <input type="text" placeholder="USD" readonly [(ngModel)]="montoConvertido">
 </div>
+<button (click)="convertirMoneda()">CALCULAR</button>
