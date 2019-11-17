@@ -1,3 +1,28 @@
-<!-- Resources -->
-<h1>Hist&oacute;rico de Precios</h1>
-<p>Se muestra el tipo de cambio de los &uacute;ltimos 3 d&iacute;as</p>
+<section class="page-section portfolio" id="historico">
+    <div class="container">
+
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Hist&oacute;rico de Precios</h2>
+
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="card-deck text-center" style="text-align: center;">
+            <div class="card border-info mb-4" *ngFor="let historical of historicals; let i = index">
+                <div class="card-header bg-info text-white">Fecha de Consulta: <b>{{historical.date}}</b></div>
+                <ul class="list-group list-group-flush text-info">
+                    <li class="list-group-item"><b>USD:</b> {{historical.rates.USD}}</li>
+                    <li class="list-group-item"><b>AUD:</b> {{historical.rates.AUD}}</li>
+                    <li class="list-group-item"><b>CAD:</b> {{historical.rates.CAD}}</li>
+                    <li class="list-group-item"><b>PLN:</b> {{historical.rates.PLN}}</li>
+                    <li class="list-group-item"><b>MXN:</b> {{historical.rates.MXN}}</li>
+                </ul>
+                <div class="card-footer bg-light border-success text-info">Hace {{i}} d&iacute;a(s)</div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LatestService } from '../../services/latest.service';
 import { Rates } from '../../models/rates.model';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-calculo',
   templateUrl: './calculo.component.html',
@@ -9,7 +11,6 @@ import { Rates } from '../../models/rates.model';
 })
 export class CalculoComponent implements OnInit {
 
-  cargando: boolean = true;
   public montoConvertir: number;
   public montoConvertido: number;
 
@@ -22,17 +23,33 @@ export class CalculoComponent implements OnInit {
   ngOnInit() {
   }
 
-  numberOnly(event: any): boolean {
-    const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+  convertirMoneda(  ) {
+
+    if (this.montoConvertir === undefined) {
+
+      Swal.fire({
+        icon: 'info',
+        title: 'Advertencia',
+        html: 'Debe ingresar monto a convertir',
+        footer: ''
+      });
+
       return false;
     }
-    return true;
 
-  }
+    if (this.montoConvertir <= 0) {
 
-  convertirMoneda(  ) {
-    this.cargando = true;
+      Swal.fire({
+        icon: 'info',
+        title: 'Advertencia',
+        html: 'Debe ingresar monto a convertir mayor a 0',
+        footer: ''
+      });
+
+      return false;
+    }
+
+    //this.montoConvertido = this.montoConvertir * 1.10;
 
     this._latestService.getLatest()
           .subscribe( (rates: Rates) => {
@@ -42,9 +59,6 @@ export class CalculoComponent implements OnInit {
             console.log(rates);
           });
 
-          
-
-    this.cargando = false;
 
   }
 

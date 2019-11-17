@@ -1,11 +1,38 @@
-<!-- Resources -->
-<h1>Conversi&oacute;n de Euro a D&oacute;lar</h1>
-<p>Ingresar monto en euro para su conversi&oacute;n a d&oacute;lares</p>
+<section class="page-section" id="conversion">
+    <div class="container">
 
-<!-- Links -->
-<div class="card-container">
-    <!-- <input type="number" class="form-control" placeholder="EU" [(ngModel)]="montoConvertir" (keypress)="numberOnly($event)"> -->
-    <input type="text" placeholder="EU" [(ngModel)]="montoConvertir" onlyNumbers allowDecimals="true" allowSign="false">
-    <input type="text" placeholder="USD" readonly [(ngModel)]="montoConvertido">
-</div>
-<button (click)="convertirMoneda()">CALCULAR</button>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Conversi&oacute;n EUR => USD</h2>
+
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 mx-auto">
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>EUROS</label>
+                        <input type="text" class="form-control" placeholder="EU" style="text-align: right;" [(ngModel)]="montoConvertir" maxlength="20" onlyNumbers allowDecimals="true" allowSign="false">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>D&Oacute;LARES</label>
+                        <input type="text" class="form-control" placeholder="USD" style="text-align: right;" value="{{montoConvertido | currency: 'USD': 'symbol': '1.1-4' }}" readonly>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <br>
+                <div id="success"></div>
+                <div class="form-group">
+                    <button (click)="convertirMoneda()" class="btn btn-block btn-primary btn-lg">CALCULAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
